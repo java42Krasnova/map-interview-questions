@@ -26,10 +26,5 @@ assertFalse(isAnagram(word, "hel00"));
 assertFalse(isAnagram(word, "hella"));
 assertFalse(isAnagram(word, "oleho"));
 
-
-
-
-
-
 	}
 }
