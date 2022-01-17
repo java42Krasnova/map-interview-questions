@@ -38,7 +38,7 @@ class MapInterviewQuestionsTests {
 	private Map<String, Integer> getMap(String[] array) {
 		TreeMap<String, Integer> res = new TreeMap<>();
 		for(String word : array) {
-			//res.g
+			
 			Integer count = res.getOrDefault(word, 0);
 			res.put(word,  ++count);
 		}

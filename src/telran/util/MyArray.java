@@ -11,11 +11,11 @@ public class MyArray {
 	 * @param length
 	 */
 	private HashMap<Integer, Integer> myArray = new HashMap<>();
-	
+	int length;
 	public MyArray(int length) {
-		for (int i = 0; i < length - 1; i++) {
-			 myArray.put(i, 0);
-		}
+//		
+		this.length = length;
+		myArray.put(length, 0);
 	}
 	/**
 	 * sets a given value in all array's elements
@@ -23,7 +23,7 @@ public class MyArray {
 	 * @param value
 	 */
 	public void setValue(int value) {
-		myArray.replaceAll((key, val) -> val = value);
+		myArray.put(length, value);
 		}
 	/**
 	 * 
@@ -32,10 +32,14 @@ public class MyArray {
 	 *          in case of wrong index
 	 */
 	public int getValueAt(int index) {
-	if(index < 0 || index >= myArray.size()) {
+
+		if(index < 0 || index >= length) {
 			throw new ArrayIndexOutOfBoundsException();
 		}
-		 return myArray.get(index);
+	if(index > 0 &&  index < length && !myArray.containsKey(index) ) {
+		return myArray.get(length);
+	}
+	return myArray.get(index);
 	}
 
 	/**
@@ -46,9 +50,11 @@ public class MyArray {
 	 * 
 	 */
 	public void setVAlueAt(int index, int value) {
-		 if(index < 0 || index >= myArray.size()) {
-			throw new ArrayIndexOutOfBoundsException();
-		}
-		 myArray.replace(index, value);
+
+		 if(index < 0 || index >= length) {
+				throw new ArrayIndexOutOfBoundsException();
+			}
+		 
+		 myArray.putIfAbsent(index, value);
 	}
 }
