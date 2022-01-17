@@ -5,17 +5,18 @@ import java.util.HashMap;
 
 //all methods should be written with complexity O[1]
 public class MyArray {
+	private static final Integer DEFAULT_VALUE = 0;
 	/**
 	 * creates myArray obj with a given length all elements are set in 0
 	 * 
 	 * @param length
 	 */
-	private HashMap<Integer, Integer> myArray = new HashMap<>();
+	private HashMap<Integer, Integer> array =  new HashMap<>(); 
 	int length;
+	
 	public MyArray(int length) {
-//		
 		this.length = length;
-		myArray.put(length, 0);
+		array.put(length, DEFAULT_VALUE);
 	}
 	/**
 	 * sets a given value in all array's elements
@@ -23,7 +24,8 @@ public class MyArray {
 	 * @param value
 	 */
 	public void setValue(int value) {
-		myArray.put(length, value);
+		array =  new HashMap<>();
+		array.put(length, value);
 		}
 	/**
 	 * 
@@ -32,14 +34,13 @@ public class MyArray {
 	 *          in case of wrong index
 	 */
 	public int getValueAt(int index) {
-
 		if(index < 0 || index >= length) {
 			throw new ArrayIndexOutOfBoundsException();
 		}
-	if(index > 0 &&  index < length && !myArray.containsKey(index) ) {
-		return myArray.get(length);
+	if(!array.containsKey(index)) {
+		return array.get(length);
 	}
-	return myArray.get(index);
+	return array.get(index);
 	}
 
 	/**
@@ -50,11 +51,9 @@ public class MyArray {
 	 * 
 	 */
 	public void setVAlueAt(int index, int value) {
-
 		 if(index < 0 || index >= length) {
 				throw new ArrayIndexOutOfBoundsException();
 			}
-		 
-		 myArray.putIfAbsent(index, value);
+		 array.put(index, value);
 	}
 }

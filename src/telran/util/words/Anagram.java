@@ -36,8 +36,7 @@ public class Anagram {
 	private static Map<Character, Integer> getMap(String word) {
 		Map<Character, Integer> map = new HashMap<>();
 		for (Character let : word.toLowerCase().toCharArray()) {
-			Integer countOfLetters = map.getOrDefault(let, 0);
-			map.put(let, countOfLetters+1);
+			map.put(let, map.getOrDefault(let, 0)+1);
 		}
 		return map;
 	}

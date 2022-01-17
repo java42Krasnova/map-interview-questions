@@ -23,7 +23,8 @@ class MyArrayTest {
 	@Test
 	void testSetValue() {
 		myArray100.setValue(77);
-		assertEquals(77, myArray100.getValueAt(64));
+		assertEquals(77, myArray100.getValueAt(84));
+		assertNotEquals(88, myArray100.getValueAt(33));
 	}
 
 	@Test
@@ -44,6 +45,13 @@ class MyArrayTest {
 		try {
 			myArray100.setVAlueAt(15, 77);
 			assertEquals(77, myArray100.getValueAt(15));
+			myArray100.setVAlueAt(19, 32);
+			assertEquals(32, myArray100.getValueAt(19));
+			assertEquals(88, myArray100.getValueAt(24));
+			myArray100.setVAlueAt(15, 77);
+			assertEquals(77, myArray100.getValueAt(15));
+			myArray100.setValue(33);
+			assertEquals(33, myArray100.getValueAt(15));
 			myArray100.setValue(-LENGTH);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			fl = true;
